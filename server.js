@@ -2,8 +2,16 @@ const express = require("express");
 const mysql = require("mysql2");
 const fs = require("fs");
 require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
+
+// Enable CORS for a specific domain
+const corsOptions = {
+  origin: 'https://http://localhost:5173/',
+  methods: 'GET, POST, PUT, DELETE, OPTIONS',
+  allowedHeaders: 'Content-Type, Authorization',
+}
 
 // Create a connection pool to the database
 const pool = mysql.createPool({
@@ -17,6 +25,10 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
 });
+
+// use CORS middleware
+app.use(cors(corsOptions))
+
 
 //========== ENDPOINTS ============//
 
