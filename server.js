@@ -7,8 +7,6 @@ const cors = require("cors");
 const app = express();
 
 
-
-
 // Create a connection pool to the database
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
