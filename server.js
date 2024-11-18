@@ -6,12 +6,8 @@ const cors = require("cors");
 
 const app = express();
 
-// Enable CORS for a specific domain
-const corsOptions = {
-  origin: 'https://http://localhost:5173/',
-  methods: 'GET, POST, PUT, DELETE, OPTIONS',
-  allowedHeaders: 'Content-Type, Authorization',
-}
+
+
 
 // Create a connection pool to the database
 const pool = mysql.createPool({
@@ -27,7 +23,7 @@ const pool = mysql.createPool({
 });
 
 // use CORS middleware
-app.use(cors(corsOptions))
+app.use(cors())
 
 
 //========== ENDPOINTS ============//
